@@ -41,10 +41,11 @@ def led_program(prog_num):
 
 
 def prog_file(prog_name):
-    file = "{}\\{}.py {} {} {}".format(UPLOAD_FOLDER, prog_name, RGB[0], RGB[1], RGB[2])
+    #file = "{}/{}.py {} {} {}".format(UPLOAD_FOLDER, prog_name, RGB[0], RGB[1], RGB[2])
+    file = "{}/{}.py".format(UPLOAD_FOLDER, prog_name)
     print(file)
     try:
-        p = Popen([file])
+        Popen(["python3", file, str(RGB[0]), str(RGB[1]), str(RGB[2])])
     except FileNotFoundError:
         print(FileNotFoundError, "error")
     except OSError:
