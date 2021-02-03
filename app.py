@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, redirect
+from flask import Flask, render_template, request, redirect
 from subprocess import Popen
 
 UPLOAD_FOLDER = "/~/rpi_ws281x/python/examples/ledweb"
@@ -6,7 +6,6 @@ led_Num = {"0": "OFF", "1": "ON", "2": "Program"}
 RGB = (0, 0, 0)
 
 app = Flask(__name__)
-app.config[UPLOAD_FOLDER] = UPLOAD_FOLDER
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -46,13 +45,13 @@ def prog_file(prog_name):
     try:
         p = Popen([file])
     except FileNotFoundError:
-        flash(FileNotFoundError, "error")
+        print(FileNotFoundError, "error")
     except OSError:
-        flash("OS Error", "error")
+        print("OS Error", "error")
     except ValueError:
         print("some file error")
-    except TimeoutError:
-        print("shit")
+    except RuntimeError:
+        print("what now?")
         # if p:
         #     p.kill()
 
