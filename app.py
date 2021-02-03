@@ -41,8 +41,10 @@ def led_program(prog_num):
 
 
 def prog_file(prog_name):
+    file = UPLOAD_FOLDER + "/" + prog_name + ".py"
+    print(file)
     try:
-        p = Popen([UPLOAD_FOLDER+"/"+prog_name+".py", RGB[0], RGB[1], RGB[2]])
+        p = Popen([file, RGB[0], RGB[1], RGB[2]])
     except FileNotFoundError:
         flash(FileNotFoundError, "error")
     except OSError:
