@@ -36,7 +36,6 @@ if __name__ == "__main__":
 
     try:
         if args:
-            while True:
-                color_off(strip, args.color)
+                color_on(strip, args.color)
     except:
         sys.exit(0)

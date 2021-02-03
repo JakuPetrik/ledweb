@@ -9,10 +9,11 @@ for a in test:
         print("OLA")
     print(a)
 
-# parser = argparse.ArgumentParser()
-# parser.add_argument("color", action="append", help="Input color r,g,b")
-# parser.add_argument("color", action="append", help="Input color r,g,b")
-# parser.add_argument("color", action="append", help="Input color r,g,b")
-# args = parser.parse_args()
-# print(bool(args))
-# print(args.color)
+parser = argparse.ArgumentParser()
+parser.add_argument("color", action="append", help="Input color r,g,b")
+parser.add_argument("color", action="append", help="Input color r,g,b")
+parser.add_argument("color", action="append", help="Input color r,g,b")
+args = parser.parse_args()
+
+# print(type(int(args.color[1])))
+print(args.color[0],args.color[1])
