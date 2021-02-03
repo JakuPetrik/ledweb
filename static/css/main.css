@@ -1,0 +1,121 @@
+body {
+    background-color: #0C0032;
+    margin: 0;
+    padding: 0;
+    font-family: Din-condensed-web,serif;
+    color: #747474;
+    background-image: url(theme.jpeg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+h2 {
+    letter-spacing: 10px;
+    color: #FF652F;
+    font-size: 43px;
+    line-height: 25px;
+    margin-bottom: 20px;
+    text-shadow: -1px -1px 0 #272727, 1px -1px 0 #272727, -1px 1px 0 #272727, 1px 1px 0 #272727;
+    text-align: center;
+    display: block;
+    font-weight: bold;
+    -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #FF652F;
+}
+h3 {
+    font-size: 30px;
+    font-weight: 100;
+    margin-top: 30px;
+    text-align: center;
+    letter-spacing: -1px;
+    color: #14A76C;
+}
+h4 {
+    font-size: 1.3em;
+    font-weight: 100;
+    color: #5A5560;
+}
+p {
+    color: #5A5560;
+}
+button {
+    border: none;
+    background-color: transparent;
+    padding: 15px 50px;
+    border-radius: 7px;
+    display: inline-block;
+    font-size: 50px;
+    font-weight: bold;
+    -webkit-text-fill-color: #FFB017; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #FFB017;
+    margin: 4px 10px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+button.sub {
+    border: none;
+    background-color: transparent;
+    padding: 15px 15px;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: normal;
+    -webkit-text-fill-color: #FFB017; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #FFB017;
+    margin: 4px 10px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+table {
+    color: #5A5560;
+}
+/* Split the screen in half */
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 200px;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  /*background-color: #111;*/
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  /*background-color: red;*/
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+/* Style the image inside the centered container, if needed */
+.centered img {
+  width: 150px;
+  border-radius: 50%;
+}

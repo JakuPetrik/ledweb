@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>LED Control</title>
+        <link rel="stylesheet" href="/static/css/main.css">
+    </head>
+<body>
+    <h2>WELCOME TO LED CONTROL</h2>
+    <h3>Choose program:</h3>
+    <div class="vertical-center">
+        <form method="post" action="/program">
+            {% for num in program %}
+            <button type="submit" name="button_num" value="{{ num }}">{{ num }}</button>
+            {% endfor %}
+        </form>
+    </div>
+    <div class="split left">
+        <div class="vertical-center">
+            <h3>Color choice</h3>
+            <form method="post" action="/color">
+                <input type="color" name="colorpicker" class="color" value="{{ cpc }}"/>
+                <button class="button sub">Submit</button>
+            </form>
+
+            <form action="/" method="post" enctype="multipart/form-data"> Select image to upload:
+                <input type="file" name="fileToUpload" id="fileToUpload">
+                <button class="button sub" value="Upload Image" name="submit">Submit</button>
+            </form>
+
+            <h4>Program modes:</h4>
+            <table>
+                <tr>
+                  <td><strong>Number</strong></td>
+                  <td><strong>Name</strong></td>
+                </tr>
+                {% for num in program %}
+                <tr>
+                  <td>{{ num }}</td>
+                  <td>{{ program[num] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+</html>
