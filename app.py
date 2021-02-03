@@ -41,16 +41,18 @@ def led_program(prog_num):
 
 
 def prog_file(prog_name):
-    file = UPLOAD_FOLDER + "/" + prog_name + ".py"
+    file =  "{}/{}.py {} {} {}".format(UPLOAD_FOLDER, prog_name, RGB[0], RGB[1], RGB[2])
     print(file)
     try:
-        p = Popen([file, RGB[0], RGB[1], RGB[2]])
+        p = Popen([file])
     except FileNotFoundError:
         flash(FileNotFoundError, "error")
     except OSError:
         flash("OS Error", "error")
-    except:
-        pass
+    except ValueError:
+        print("some file error")
+    except TimeoutError:
+        print("shit")
         # if p:
         #     p.kill()
 
