@@ -14,11 +14,12 @@ LED_INVERT = False   # True to invert the signal (when using NPN transistor leve
 LED_CHANNEL = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 
 
-def color_on(strip, color, wait_ms=50):
+def color_on(strip, color, wait_ms=2):
+    print(strip.numPixels())
     for i in range(strip.numPixels()):
         strip.setPixelColor(i, color)
         strip.show()
-        # time.sleep(wait_ms/1000)
+        time.sleep(wait_ms/1000)
 
 
 if __name__ == "__main__":
@@ -36,7 +37,6 @@ if __name__ == "__main__":
 
     try:
         if args:
-            while True:
-                color_off(strip, args.color)
-    except:
+                color_on(strip, Color(int(args.color[0]),int(args.color[1]),int(args.color[2])))
+    except KeyboardInterrupt:
         sys.exit(0)
