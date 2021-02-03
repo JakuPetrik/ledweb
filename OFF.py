@@ -28,7 +28,6 @@ if __name__ == "__main__":
     strip.begin()
 
     try:
-        while True:
             color_off(strip, Color(0,0,0))
     except:
         sys.exit(0)

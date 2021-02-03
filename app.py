@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, redirect
 from subprocess import Popen
+import os
 
-UPLOAD_FOLDER = "/~/rpi_ws281x/python/examples/ledweb"
+UPLOAD_FOLDER = os.getcwd()
 led_Num = {"0": "OFF", "1": "ON", "2": "Program"}
 RGB = (0, 0, 0)
 
@@ -40,7 +41,7 @@ def led_program(prog_num):
 
 
 def prog_file(prog_name):
-    file =  "{}/{}.py {} {} {}".format(UPLOAD_FOLDER, prog_name, RGB[0], RGB[1], RGB[2])
+    file = "{}\\{}.py {} {} {}".format(UPLOAD_FOLDER, prog_name, RGB[0], RGB[1], RGB[2])
     print(file)
     try:
         p = Popen([file])
