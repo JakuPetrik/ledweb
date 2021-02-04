@@ -45,4 +45,9 @@ Controlling LEDs with rpi_ws281x library
   
 7. Download the flask library for python
 
-  `pip install Flask`
+  `pip3 install Flask`
+  
+8. Run the app with python out of the ledweb folder 
+>I recommend putting the ledweb folder into the examples folder
+
+  `sudo python3 app.py`
