@@ -5,6 +5,7 @@ import os
 UPLOAD_FOLDER = os.path.join(os.getcwd() + "/program")
 program = {"0": "OFF", "1": "ON", "2": "Program"}
 RGB = (0, 0, 0)
+p = None
 
 app = Flask(__name__)
 
@@ -57,8 +58,11 @@ def led_program(prog_num):
 def prog_file(prog_name):
     # file = "{}/{}.py {} {} {}".format(UPLOAD_FOLDER, prog_name, RGB[0], RGB[1], RGB[2])
     file = "{}/{}".format(UPLOAD_FOLDER, prog_name)
-    print(file)
+    global p
     try:
+        if p:
+            print("Killing")
+            p.kill()
         p = Popen(["python3", file, str(RGB[0]), str(RGB[2]), str(RGB[1])])
         print(p)
     except FileNotFoundError:
@@ -69,8 +73,6 @@ def prog_file(prog_name):
         print("some file error")
     except RuntimeError:
         print("what now?")
-        if p:
-            p.kill()
 
 
 def get_programs():
@@ -82,4 +84,4 @@ def get_programs():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+        app.run(host="0.0.0.0")

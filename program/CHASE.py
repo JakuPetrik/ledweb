@@ -41,6 +41,7 @@ if __name__ == "__main__":
 
     try:
         if args:
-            theater_chase(strip, Color(int(args.color[0]), int(args.color[1]), int(args.color[2])))
+            while True:
+                theater_chase(strip, Color(int(args.color[0]), int(args.color[1]), int(args.color[2])))
     except KeyboardInterrupt:
         sys.exit(0)
