@@ -1,5 +1,6 @@
 from rpi_ws281x import *
 import time
+import argparse
 import sys
 
 # LED strip configuration:
@@ -27,13 +28,19 @@ def theater_chase(strip, color, wait_ms=50, iterations=10):
 
 if __name__ == "__main__":
 
+    parser = argparse.ArgumentParser()
+    parser.add_argument("color", action="append", help="Input color r,g,b")
+    parser.add_argument("color", action="append", help="Input color r,g,b")
+    parser.add_argument("color", action="append", help="Input color r,g,b")
+    args = parser.parse_args()
+
     # Create NeoPixel object with appropriate configuration.
     strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL)
     # Intialize the library (must be called once before other functions).
     strip.begin()
 
     try:
-        while True:
-            theater_chase(strip, Color(0,0,0))
-    except:
+        if args:
+            theater_chase(strip, Color(int(args.color[0]), int(args.color[1]), int(args.color[2])))
+    except KeyboardInterrupt:
         sys.exit(0)
