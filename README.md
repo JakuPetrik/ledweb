@@ -1,5 +1,5 @@
 # ledweb
-Small web app for LEDs
+## Small web app for LEDs
 
 Built on the Raspberri Pi 3b
 Using WS2812b 12v LED Strip (30LEDs per strip, using 5 strips)
@@ -9,13 +9,13 @@ Power supply with 12v 5A
 Running a small local Flask web server
 Controlling LEDs with rpi_ws281x library
 
-Webserver:
+## Webserver:
 
 - display page for color and program choice
 
 - allows to upload more programs and auto detects them
 
-Installation
+## Installation
 
 1. The package sources are updated:
 
