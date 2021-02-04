@@ -11,6 +11,8 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
+    global program
+    program = get_programs()
     if request.method == "POST":
         pass
     cpc = "#%02x%02x%02x" % RGB
@@ -30,7 +32,7 @@ def color():
     args = request.form.get("colorpicker").lstrip("#")
     global RGB
     RGB = tuple(int(args[i:i+2], 16) for i in (0, 2, 4))
-    prog_file("ON")
+    prog_file("ON.py")
     return redirect("/")
 
 
@@ -39,7 +41,10 @@ def upload_file():
     if request.method == "POST":
         f = request.files["fileToUpload"]
         file = os.path.join(UPLOAD_FOLDER, f.filename)
-        f.save(file)
+        try:
+            f.save(file)
+        except:
+            print("File error")
     return "file uploaded successfully"
 
 
@@ -51,7 +56,7 @@ def led_program(prog_num):
 
 def prog_file(prog_name):
     # file = "{}/{}.py {} {} {}".format(UPLOAD_FOLDER, prog_name, RGB[0], RGB[1], RGB[2])
-    file = "{}/{}.py".format(UPLOAD_FOLDER, prog_name)
+    file = "{}/{}".format(UPLOAD_FOLDER, prog_name)
     print(file)
     try:
         p = Popen(["python3", file, str(RGB[0]), str(RGB[2]), str(RGB[1])])
@@ -76,5 +81,4 @@ def get_programs():
 
 
 if __name__ == "__main__":
-    program = get_programs()
     app.run(host="0.0.0.0")
