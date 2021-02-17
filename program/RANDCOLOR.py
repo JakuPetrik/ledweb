@@ -21,25 +21,25 @@ def rand_color(strip, color):
     random_place = random.randrange(strip.numPixels())
     for j in range(2,-1,-1):
         strip.setPixelColor(random_place - j,
-                            Color(int(args.color[0]) / (j + 1),
-                                  int(args.color[1]) / (j + 1),
-                                  int(args.color[2]) / (j + 1)))
+                            Color(color[0] / (j + 1),
+                                  color[1] / (j + 1),
+                                  color[2] / (j + 1)))
         strip.setPixelColor(random_place+j,
-                            Color(int(args.color[0]) / (j + 1),
-                                  int(args.color[1]) / (j + 1),
-                                  int(args.color[2]) / (j + 1)))
+                            Color(color[0] / (j + 1),
+                                  color[1] / (j + 1),
+                                  color[2] / (j + 1)))
         strip.setBrightness(int(255/j+1))
         strip.show()
         time.sleep(100 / 1000.0)
     for j in range(2, -1, -1):
         strip.setPixelColor(random_place - j,
-                            Color(int(args.color[0]) - int(args.color[0]) / (j + 1),
-                                  int(args.color[1]) - int(args.color[1]) / (j + 1),
-                                  int(args.color[2]) - int(args.color[2]) / (j + 1)))
+                            Color(color[0] - color[0] / (j + 1),
+                                  color[1] - color[1] / (j + 1),
+                                  color[2] - color[2] / (j + 1)))
         strip.setPixelColor(random_place + j,
-                            Color(int(args.color[0]) - int(args.color[0]) / (j + 1),
-                                  int(args.color[1]) - int(args.color[1]) / (j + 1),
-                                  int(args.color[2]) - int(args.color[2]) / (j + 1)))
+                            Color(color[0] - color[0] / (j + 1),
+                                  color[1] - color[1] / (j + 1),
+                                  color[2] - color[2] / (j + 1)))
         strip.setBrightness(int(255-255/(j+1)))
         strip.show()
         time.sleep(100 / 1000.0)
@@ -80,10 +80,11 @@ if __name__ == "__main__":
 
     try:
         if args:
+            color = list(args.color)
             while True:
-                rand_color(strip, args)
-                rand_color(strip, args)
-                rand_color(strip, args)
+                rand_color(strip, color)
+                rand_color(strip, color)
+                rand_color(strip, color)
                 # color_off(strip)
     except KeyboardInterrupt:
         sys.exit(0)
