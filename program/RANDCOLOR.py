@@ -29,7 +29,7 @@ def rand_color(strip, color):
                                   int(color[1] / (j + 1)),
                                   int(color[2] / (j + 1))))
         strip.show()
-        time.sleep(100 / 1000.0)
+        time.sleep(500 / 1000.0)
     for j in range(2, -1, -1):
         strip.setPixelColor(random_place - j,
                             Color(int(color[0] - color[0] / (j + 1)),
@@ -40,8 +40,8 @@ def rand_color(strip, color):
                                   int(color[1] - color[1] / (j + 1)),
                                   int(color[2] - color[2] / (j + 1))))
         strip.show()
-        time.sleep(100 / 1000.0)
-    time.sleep(100/1000.0)
+        time.sleep(500 / 1000.0)
+    time.sleep(1000/1000.0)
     # random_place = random.randrange(strip.numPixels())
     # for j in range(2,-1,-1):
     #     strip.setPixelColor(random_place-j, color)

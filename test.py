@@ -24,8 +24,8 @@ print(255/3+1)
 for i in range(5):
     random_place = random.randrange(100)
     for j in range(2, -1, -1):
-        print(random_place - j, "F")
-        print(random_place + j, "L")
+        # print(random_place - j, "F")
+        # print(random_place + j, "L")
         time.sleep(200 / 1000.0)
         print(255 / (j + 1))
         print(255 - 255 / (j + 1))
