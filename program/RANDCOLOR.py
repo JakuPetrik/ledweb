@@ -80,7 +80,8 @@ if __name__ == "__main__":
 
     try:
         if args:
-            color = list(args.color)
+            integer_map = map(int, args.color)
+            color = list(integer_map)
             while True:
                 rand_color(strip, color)
                 rand_color(strip, color)
