@@ -22,13 +22,13 @@ def rand_color(strip, color):
     for j in range(2,-1,-1):
         strip.setPixelColor(random_place-j, color)
         strip.setPixelColor(random_place+j, color)
-        strip.setBrightness(255/j+1)
+        strip.setBrightness(int(255/j+1))
         strip.show()
         time.sleep(100 / 1000.0)
     for j in range(2, -1, -1):
         strip.setPixelColor(random_place - j, color)
         strip.setPixelColor(random_place + j, color)
-        strip.setBrightness(255-255/j+1)
+        strip.setBrightness(int(255-255/j+1))
         strip.show()
         time.sleep(100 / 1000.0)
     time.sleep(100/1000.0)

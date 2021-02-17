@@ -10,23 +10,25 @@ t = None
 print(test)
 test[3] = "OLA"
 print(test)
-for a in test:
-    if a == "1":
-        print("OLA")
-    print(a)
+# for a in test:
+#     if a == "1":
+#         print("OLA")
+#     print(a)
 
 if not t:
     print(t)
     print("true?")
 
-for i in range(5):
-    random_place = random.randrange(100)
-    for j in range(2, -1, -1):
-        print(random_place - j, "F")
-        print(random_place + j, "L")
-        time.sleep(200 / 1000.0)
-    print("------------------------")
-    time.sleep(500 / 1000.0)
+print(255/3+1)
+
+# for i in range(5):
+#     random_place = random.randrange(100)
+#     for j in range(2, -1, -1):
+#         print(random_place - j, "F")
+#         print(random_place + j, "L")
+#         time.sleep(200 / 1000.0)
+#     print("------------------------")
+#     time.sleep(500 / 1000.0)
 #
 # t = subprocess.Popen(['python', 'loop.py'])
 #
