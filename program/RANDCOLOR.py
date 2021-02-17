@@ -19,12 +19,24 @@ LED_CHANNEL = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 # Choose random place and light it up
 def rand_color(strip, color):
     random_place = random.randrange(strip.numPixels())
-    for j in range(2,-1,-1):
+    for i in range(2,-1,-1):
         strip.setPixelColor(random_place-j, color)
         strip.setPixelColor(random_place+j, color)
         strip.show()
         time.sleep(100/1000.0)
-    time.sleep(300 / 1000.0)
+    # random_place = random.randrange(strip.numPixels())
+    # for j in range(2,-1,-1):
+    #     strip.setPixelColor(random_place-j, color)
+    #     strip.setPixelColor(random_place+j, color)
+    #     strip.show()
+    #     time.sleep(100/1000.0)
+    # random_place = random.randrange(strip.numPixels())
+    # for k in range(2,-1,-1):
+    #     strip.setPixelColor(random_place-j, color)
+    #     strip.setPixelColor(random_place+j, color)
+    #     strip.show()
+    #     time.sleep(100/1000.0)
+    time.sleep(200 / 1000.0)
 
 
 def color_off(strip):
@@ -49,6 +61,8 @@ if __name__ == "__main__":
     try:
         if args:
             while True:
+                rand_color(strip, Color(int(args.color[0]), int(args.color[1]), int(args.color[2])))
+                rand_color(strip, Color(int(args.color[0]), int(args.color[1]), int(args.color[2])))
                 rand_color(strip, Color(int(args.color[0]), int(args.color[1]), int(args.color[2])))
                 color_off(strip)
     except KeyboardInterrupt:
