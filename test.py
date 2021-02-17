@@ -24,11 +24,13 @@ print(255/3+1)
 for i in range(5):
     random_place = random.randrange(100)
     for j in range(2, -1, -1):
+        for k in range(1, 3, 1):
+            print(k, "set color", "a"*k)
+        for k in range(3,0,-1):
+            print(k, "set color", "a"*k)
         # print(random_place - j, "F")
         # print(random_place + j, "L")
         time.sleep(200 / 1000.0)
-        print(255 / (j + 1))
-        print(255 - 255 / (j + 1))
     print("------------------------")
 
     time.sleep(500 / 1000.0)

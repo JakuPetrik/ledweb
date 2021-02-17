@@ -19,28 +19,31 @@ LED_CHANNEL = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 # Choose random place and light it up
 def rand_color(strip, color):
     random_place = random.randrange(strip.numPixels())
+    i = 2
     for j in range(2,-1,-1):
-        strip.setPixelColor(random_place - j,
-                            Color(int(color[0] / (j + 1)),
-                                  int(color[1] / (j + 1)),
-                                  int(color[2] / (j + 1))))
-        strip.setPixelColor(random_place+j,
-                            Color(int(color[0] / (j + 1)),
-                                  int(color[1] / (j + 1)),
-                                  int(color[2] / (j + 1))))
-        strip.show()
-        time.sleep(500 / 1000.0)
+        for k in range(3,1,-1):
+            strip.setPixelColor(random_place - j,
+                                Color(int(color[0] / k),
+                                      int(color[1] / k),
+                                      int(color[2] / k)))
+            strip.setPixelColor(random_place+j,
+                                Color(int(color[0] / k),
+                                      int(color[1] / k),
+                                      int(color[2] / k)))
+            strip.show()
+            time.sleep(500 / 1000.0)
     for j in range(2, -1, -1):
-        strip.setPixelColor(random_place - j,
-                            Color(int(color[0] - color[0] / (j + 1)),
-                                  int(color[1] - color[1] / (j + 1)),
-                                  int(color[2] - color[2] / (j + 1))))
-        strip.setPixelColor(random_place + j,
-                            Color(int(color[0] - color[0] / (j + 1)),
-                                  int(color[1] - color[1] / (j + 1)),
-                                  int(color[2] - color[2] / (j + 1))))
-        strip.show()
-        time.sleep(500 / 1000.0)
+        for k in range(3,1,-1):
+            strip.setPixelColor(random_place - j,
+                                Color(int(color[0] - color[0] / k),
+                                      int(color[1] - color[1] / k),
+                                      int(color[2] - color[2] / k)))
+            strip.setPixelColor(random_place + j,
+                                Color(int(color[0] - color[0] / k),
+                                      int(color[1] - color[1] / k),
+                                      int(color[2] - color[2] / k)))
+            strip.show()
+            time.sleep(500 / 1000.0)
     time.sleep(1000/1000.0)
     # random_place = random.randrange(strip.numPixels())
     # for j in range(2,-1,-1):
